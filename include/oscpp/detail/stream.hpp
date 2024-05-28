@@ -57,6 +57,8 @@ public:
         m_begin = m_pos = stream.m_pos;
         m_end = stream.m_end;
     }
+    
+    Stream& operator=(const Stream& stream) = default;
 
     Stream(const Stream& stream, size_t size)
     {
@@ -156,6 +158,8 @@ public:
     BasicWriteStream(const BasicWriteStream& stream, size_t size)
     : Stream(stream, size)
     {}
+    
+    BasicWriteStream& operator=(const BasicWriteStream& stream) = default;
 
     // throw (OverflowError)
     inline void checkWritable(size_t n) const
@@ -260,6 +264,8 @@ public:
     BasicReadStream(const BasicReadStream& stream, size_t size)
     : Stream(stream, size)
     {}
+    
+    BasicReadStream& operator=(const BasicReadStream& stream) = default;
 
     // throw (UnderrunError)
     void checkReadable(size_t n) const
